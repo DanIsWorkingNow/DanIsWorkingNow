@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Question 1</title>
+    <script type="text/javascript">
+        var totalMiles = 0, totalGallons = 0;
+        while (true) {
+            var miles = parseInt(prompt("Enter miles driven for this tank (0 to exit):"));
+            if (miles === 0) {
+                break;
+            }
+            var gallons = parseInt(prompt("Enter gallons used for this tank:"));
+            if (gallons === 0) { // To handle division by zero if gallons is zero
+                alert("Gallons cannot be zero.");
+                continue;
+            }
+            var mpg = miles / gallons;
+            totalMiles += miles;
+            totalGallons += gallons;
+            alert("Miles per gallon for this tank: " + mpg.toFixed(2));
+            if (totalGallons !== 0) { // To ensure there is no division by zero in the cumulative calculation
+                var cumulativeMPG = totalMiles / totalGallons;
+                alert("Combined miles per gallon: " + cumulativeMPG.toFixed(2));
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Click F5 to refresh.</p>
+</body>
+</html>
